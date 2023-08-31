@@ -2,37 +2,58 @@
 
 int MiniPID(float p,float i, float d)
 {
+    // Initialize PID coefficients
     pid_init();
+    // Set PID coefficients
     P=p; I=i; D=d;
+    // Return 0 if PID coefficients are valid
     return 0;
 }
 
 int MiniPIDF(float p,float i, float d,float f)
 {
+    // Initialize PID coefficients
     pid_init();
+    // Set PID coefficients
     P=p; I=i; D=d; F=f;
+    // Return 0 if PID coefficients are valid
     return 0;
 }
 
+// Initialize PID coefficients
 static void pid_init()
 {
+    // Initialize PID coefficients
     P=0;
 	I=0;
 	D=0;
 	F=0;
 
+	// Set maximum allowed output
 	maxIOutput=0;
+	// Set maximum allowed error
 	maxError=0;
+	// Set error sum to zero
 	errorSum=0;
+	// Set maximum allowed output
 	maxOutput=0; 
+	// Set minimum allowed output
 	minOutput=0;
+	// Set setpoint to zero
 	setpoint=0;
+	// Set lastActual to zero
 	lastActual=0;
+	// Set firstRun to true
 	firstRun=true;
+	// Set reversed to false
 	reversed=false;
+	// Set output ramp rate
 	outputRampRate=0;
+	// Set last output to zero
 	lastOutput=0;
+	// Set output filter
 	outputFilter=0;
+	// Set setpoint range
 	setpointRange=0;
 
 }
